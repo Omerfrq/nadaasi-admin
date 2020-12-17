@@ -8,6 +8,8 @@ import { UploadProduct } from '../views/uploadProduct';
 import { Feedback } from '../views/feedback';
 import { Users } from '../views/users';
 import { Login } from '../views/login';
+import { AddCategory } from '../views/addCategory';
+import { ViewCategories } from '../views/viewCategories';
 
 export const Router = () => {
   return (
@@ -15,11 +17,13 @@ export const Router = () => {
       <Route exact path='/' component={Login} />
       <Route exact path='/users' component={Users} />
       <Route exact path='/feedback' component={Feedback} />
+      <Route exact path='/add-category' component={AddCategory} />
       <Route exact path='/upload-product' component={UploadProduct} />
       <Route exact path='/products' component={ViewProducts} />
       <Route exact path='/add-coupon' component={AddCoupon} />
       <Route exact path='/coupons' component={ViewCoupon} />
       <Route exact path='/orders' component={ViewOrders} />
+      <Route exact path='/categories' component={ViewCategories} />
     </Switch>
   );
 };

@@ -8,8 +8,25 @@ import Toggle from 'react-toggle';
 import axios from 'axios';
 import { OPTIONS } from '../config/selectConfig';
 import { toast } from 'react-toastify';
+import { useCategories } from '../hooks/useCategories';
+import { Loader } from './spinner';
+
+const formatCategories = (categories) => {
+  const options = [];
+
+  categories.map((category) =>
+    options.push({
+      label: category.name,
+      value: category.name,
+    })
+  );
+
+  return options;
+};
 
 export const ProductForm = () => {
+  const { categories, isLoading: isLoadingCategories } = useCategories(true);
+
   const { handleSubmit, register } = useForm();
 
   const [images, setImages] = useState([]);
@@ -82,6 +99,15 @@ export const ProductForm = () => {
         });
       });
   };
+
+  if (isLoadingCategories) {
+    return (
+      <div className='container'>
+        <Loader />
+      </div>
+    );
+  }
+
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <div className='row'>
@@ -151,9 +177,9 @@ export const ProductForm = () => {
           <div className='form-group'>
             <Select
               defaultValue={[]}
-              placeholder='Select Dress Type..'
+              placeholder='Select Category..'
               name='dressType'
-              options={OPTIONS.dressTypeOptions}
+              options={formatCategories(categories)}
               onChange={({ value }) => {
                 setDressType(value);
               }}

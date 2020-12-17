@@ -6,8 +6,6 @@ import { useIsAdmin } from '../hooks/useIsAdmin';
 import { Loader } from '../components/spinner';
 import { setAuthorizationToken } from '../helpers/utils';
 
-const defaultImg =
-  'https://www.flaticon.com/premium-icon/icons/svg/1993/1993420.svg';
 export const Users = () => {
   const [users, setUsers] = useState([]);
 

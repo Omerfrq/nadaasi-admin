@@ -55,6 +55,29 @@ const Appbar = () => {
                 Users
               </NavLink>
             </MenuItem>
+            <SubMenu title='Categories' icon={<FeatherIcon icon='gift' />}>
+              <MenuItem>
+                {' '}
+                <NavLink
+                  exact={true}
+                  activeClassName='text-light font-weight-bold '
+                  tag={RRNavLink}
+                  to='/categories'
+                >
+                  Categories
+                </NavLink>
+              </MenuItem>
+              <MenuItem>
+                <NavLink
+                  exact={true}
+                  activeClassName='text-light font-weight-bold '
+                  tag={RRNavLink}
+                  to='/add-category'
+                >
+                  Add Category
+                </NavLink>
+              </MenuItem>
+            </SubMenu>
             <SubMenu title='Coupons' icon={<FeatherIcon icon='gift' />}>
               <MenuItem>
                 {' '}
