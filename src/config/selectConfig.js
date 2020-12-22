@@ -9,11 +9,11 @@ export const OPTIONS = {
       label: 'Extra Small',
     },
     {
-      value: 'M',
+      value: 'MD',
       label: 'Medium',
     },
     {
-      value: 'L',
+      value: 'LG',
       label: 'Large',
     },
 
