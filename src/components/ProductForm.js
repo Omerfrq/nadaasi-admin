@@ -10,6 +10,7 @@ import { OPTIONS } from '../config/selectConfig';
 import { toast } from 'react-toastify';
 import { useCategories } from '../hooks/useCategories';
 import { Loader } from './spinner';
+import shortid from 'shortid';
 
 const formatCategories = (categories) => {
   const options = [];
@@ -85,6 +86,7 @@ export const ProductForm = () => {
     formdata.append('dressType', dressType);
     formdata.append('inStock', inStock);
     formdata.append('description', description);
+    formdata.append('upc', shortid.generate());
     formdata.append('stockQuantity', stockQuantity);
     // formdata.append('details', JSON.stringify(productDetails));
 

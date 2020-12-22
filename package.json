@@ -20,7 +20,8 @@
     "react-slidedown": "^2.4.5",
     "react-toastify": "^5.5.0",
     "react-toggle": "^4.1.1",
-    "reactstrap": "^8.4.1"
+    "reactstrap": "^8.4.1",
+    "shortid": "^2.2.16"
   },
   "scripts": {
     "start": "react-scripts start",
