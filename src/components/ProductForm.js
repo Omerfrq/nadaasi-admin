@@ -55,25 +55,27 @@ export const ProductForm = () => {
     const {
       price,
       name,
-      closure,
-      details,
-      fabric,
-      length,
-      neckLine,
-      waistLine,
-      modelHAndS,
+      // closure,
+      // details,
+      // fabric,
+      // length,
+      // neckLine,
+      // waistLine,
+      // modelHAndS,
+      description,
+      stockQuantity,
     } = data;
     const formdata = new FormData();
 
-    const productDetails = {
-      closure,
-      details,
-      fabric,
-      length,
-      neckLine,
-      waistLine,
-      modelHAndS,
-    };
+    // const productDetails = {
+    //   closure,
+    //   details,
+    //   fabric,
+    //   length,
+    //   neckLine,
+    //   waistLine,
+    //   modelHAndS,
+    // };
     images.map((file) => formdata.append('images', file));
     formdata.append('price', price);
     formdata.append('name', name);
@@ -82,7 +84,9 @@ export const ProductForm = () => {
     formdata.append('color', dressColor);
     formdata.append('dressType', dressType);
     formdata.append('inStock', inStock);
-    formdata.append('details', JSON.stringify(productDetails));
+    formdata.append('description', description);
+    formdata.append('stockQuantity', stockQuantity);
+    // formdata.append('details', JSON.stringify(productDetails));
 
     axios
       .post('/product', formdata)
@@ -202,6 +206,7 @@ export const ProductForm = () => {
             />
           </div>
         </div>
+
         <div className='col-md-6'>
           <div className='form-group'>
             <CreatableSelect
@@ -216,23 +221,35 @@ export const ProductForm = () => {
           </div>
         </div>
         <div className='col-md-12'>
+          <div className='form-group'>
+            <input
+              name='stockQuantity'
+              type='number'
+              className='form-control'
+              min={1}
+              placeholder='Enter Stock Quantity'
+              ref={register}
+            />
+          </div>
+        </div>
+        <div className='col-md-12'>
           <div className='d-flex justify-content-between'>
             <h4 className='font-weight-bold text-info'>Product Details</h4>
             <span className='tag '>Optional</span>
           </div>
           <div className='row'>
-            <div className='col-md-4'>
+            <div className='col-md-12'>
               <div className='form-group'>
                 <input
-                  name='closure'
+                  name='description'
                   ref={register}
                   type='text'
                   className='form-control'
-                  placeholder='Enter Closure'
+                  placeholder='Enter Description'
                 />
               </div>
             </div>
-            <div className='col-md-4'>
+            {/* <div className='col-md-4'>
               <div className='form-group'>
                 <input
                   name='fabric'
@@ -298,7 +315,7 @@ export const ProductForm = () => {
                   placeholder='Enter Model Height And Size'
                 />
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
 
