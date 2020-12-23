@@ -15,12 +15,14 @@ import shortid from 'shortid';
 const formatCategories = (categories) => {
   const options = [];
 
-  categories.map((category) =>
-    options.push({
-      label: category.name,
-      value: category.name,
-    })
-  );
+  if (categories.length === 0) {
+    categories.map((category) =>
+      options.push({
+        label: category.name,
+        value: category.name,
+      })
+    );
+  }
 
   return options;
 };
@@ -83,7 +85,7 @@ export const ProductForm = () => {
     formdata.append('rating', '5');
     formdata.append('size', dressSize);
     formdata.append('color', dressColor);
-    formdata.append('dressType', dressType);
+    formdata.append('category', dressType);
     formdata.append('inStock', inStock);
     formdata.append('description', description);
     formdata.append('upc', shortid.generate());
