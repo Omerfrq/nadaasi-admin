@@ -15,7 +15,7 @@ import shortid from 'shortid';
 const formatCategories = (categories) => {
   const options = [];
 
-  if (categories.length === 0) {
+  if (categories?.categories?.length !== 0) {
     categories.map((category) =>
       options.push({
         label: category.name,
