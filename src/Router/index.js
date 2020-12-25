@@ -10,11 +10,13 @@ import { Users } from '../views/users';
 import { Login } from '../views/login';
 import { AddCategory } from '../views/addCategory';
 import { ViewCategories } from '../views/viewCategories';
+import { Dashboard } from '../views/Dashboard';
 
 export const Router = () => {
   return (
     <Switch>
       <Route exact path='/' component={Login} />
+      <Route exact path='/dashboard' component={Dashboard} />
       <Route exact path='/users' component={Users} />
       <Route exact path='/feedback' component={Feedback} />
       <Route exact path='/add-category' component={AddCategory} />

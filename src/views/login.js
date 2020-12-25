@@ -50,7 +50,8 @@ export const Login = () => {
         ) : (
           <>
             {error && <Alert color='danger'>Invalid Credentials.</Alert>}
-            <img src={logo} alt='logo' width='100%' />
+            {/* <img src={logo} alt='logo' width='100%' /> */}
+            <h1 className='text-center text-uppercase'>High Clowns</h1>
             <small className='text-right w-100 d-block px-2 font-weight-bold '>
               Admin
             </small>

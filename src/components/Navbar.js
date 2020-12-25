@@ -35,12 +35,15 @@ const Appbar = () => {
                 tag={RRNavLink}
                 to='/coupons'
               >
-                <img
+                {/* <img
                   className='ml-2'
                   src={Logo}
                   alt='Nadaasi Logo'
                   width='90px'
-                />{' '}
+                />{' '} */}
+                <span className='font-weight-bold text-white mr-2'>
+                  High Clowns
+                </span>
                 <span className='text-white ml-1'>Admin</span>
               </NavLink>
             </MenuItem>
