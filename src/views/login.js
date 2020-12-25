@@ -17,7 +17,7 @@ export const Login = () => {
     setIsLoading(false);
     if (localStorage.getItem('loggedIn')) {
       setAuthorizationToken();
-      history.push('/coupons');
+      history.push('/dashboard');
     }
     // eslint-disable-next-line
   }, []);
@@ -34,7 +34,7 @@ export const Login = () => {
       .then((res) => {
         localStorage.setItem('loggedIn', res.data.token);
         setIsLoading(false);
-        history.push('/coupons');
+        history.push('/dashboard');
       })
       .catch((err) => {
         setIsLoading(false);

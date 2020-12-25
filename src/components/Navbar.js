@@ -47,6 +47,17 @@ const Appbar = () => {
                 <span className='text-white ml-1'>Admin</span>
               </NavLink>
             </MenuItem>
+            <MenuItem icon={<FeatherIcon icon='activity' />}>
+              {' '}
+              <NavLink
+                exact={true}
+                activeClassName='text-light font-weight-bold '
+                tag={RRNavLink}
+                to='/dashboard'
+              >
+                Dashboard
+              </NavLink>
+            </MenuItem>
             <MenuItem icon={<FeatherIcon icon='users' />}>
               {' '}
               <NavLink
