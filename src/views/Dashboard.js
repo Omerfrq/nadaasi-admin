@@ -22,25 +22,25 @@ export const Dashboard = () => {
       <div className='row custom-shadow p-3 bg-white'>
         <div className='col-md-3 border-right'>
           <div className='d-flex flex-column'>
-            <h5 className='text-muted'>Total Products</h5>
+            <h6 className='text-muted'>Total Government Users</h6>
             <h1 className='font-weight-bold'>10</h1>
           </div>
         </div>
         <div className='col-md-3 border-right'>
           <div className='d-flex flex-column'>
-            <h5 className='text-muted'>Total Orders</h5>
+            <h6 className='text-muted'>Total Contractors</h6>
             <h1 className='font-weight-bold'>150</h1>
           </div>
         </div>
         <div className='col-md-3 border-right'>
           <div className='d-flex flex-column'>
-            <h5 className='text-muted'>Total Users</h5>
+            <h6 className='text-muted'>Total Projects</h6>
             <h1 className='font-weight-bold'>1050</h1>
           </div>
         </div>
         <div className='col-md-3 '>
           <div className='d-flex flex-column'>
-            <h5 className='text-muted'>Total Feedback</h5>
+            <h6 className='text-muted'>Total Feedback</h6>
             <h1 className='font-weight-bold'>7</h1>
           </div>
         </div>
@@ -54,29 +54,9 @@ export const Dashboard = () => {
               to='/users'
             />
             <DashboardCard
-              title='View Feedback'
-              message='View feedback from here'
-              to='/feedback'
-            />
-            <DashboardCard
-              title='Add Categories'
-              message='Add product categories from here'
-              to='/add-category'
-            />
-            <DashboardCard
-              title='Add Coupons'
-              message='Add coupons from here'
-              to='/add-coupon'
-            />
-            <DashboardCard
-              title='Add Products'
-              message='Add product from here'
-              to='/upload-product'
-            />
-            <DashboardCard
-              title='Add Categories'
-              message='Add product categories from here'
-              to='/add-category'
+              title='View Projects'
+              message='View Projects from here'
+              to='/projects'
             />
           </div>
         </div>

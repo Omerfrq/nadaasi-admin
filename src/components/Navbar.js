@@ -42,7 +42,7 @@ const Appbar = () => {
                   width='90px'
                 />{' '} */}
                 <span className='font-weight-bold text-white mr-2'>
-                  High Clowns
+                  BDI Invest
                 </span>
                 <span className='text-white ml-1'>Admin</span>
               </NavLink>
@@ -69,7 +69,7 @@ const Appbar = () => {
                 Users
               </NavLink>
             </MenuItem>
-            <SubMenu title='Categories' icon={<FeatherIcon icon='gift' />}>
+            {/* <SubMenu title='Categories' icon={<FeatherIcon icon='gift' />}>
               <MenuItem>
                 {' '}
                 <NavLink
@@ -91,8 +91,8 @@ const Appbar = () => {
                   Add Category
                 </NavLink>
               </MenuItem>
-            </SubMenu>
-            <SubMenu title='Coupons' icon={<FeatherIcon icon='gift' />}>
+            </SubMenu> */}
+            {/* <SubMenu title='Coupons' icon={<FeatherIcon icon='gift' />}>
               <MenuItem>
                 {' '}
                 <NavLink
@@ -114,8 +114,8 @@ const Appbar = () => {
                   Add Coupons
                 </NavLink>
               </MenuItem>
-            </SubMenu>
-            <SubMenu title='Products' icon={<FeatherIcon icon='package' />}>
+            </SubMenu> */}
+            {/* <SubMenu title='Products' icon={<FeatherIcon icon='package' />}>
               <MenuItem>
                 <NavLink
                   exact={true}
@@ -136,8 +136,8 @@ const Appbar = () => {
                   Products
                 </NavLink>
               </MenuItem>
-            </SubMenu>
-            <MenuItem icon={<FeatherIcon icon='truck' />}>
+            </SubMenu> */}
+            {/* <MenuItem icon={<FeatherIcon icon='truck' />}>
               <NavLink
                 exact={true}
                 activeClassName='text-light font-weight-bold '
@@ -146,8 +146,8 @@ const Appbar = () => {
               >
                 Orders
               </NavLink>
-            </MenuItem>
-            <MenuItem icon={<FeatherIcon icon='clipboard' />}>
+            </MenuItem> */}
+            {/* <MenuItem icon={<FeatherIcon icon='clipboard' />}>
               <NavLink
                 exact={true}
                 activeClassName='text-light font-weight-bold '
@@ -156,7 +156,7 @@ const Appbar = () => {
               >
                 Feedback
               </NavLink>
-            </MenuItem>
+            </MenuItem> */}
             <MenuItem icon={<FeatherIcon icon='log-out' />}>
               <NavItem>
                 <NavLink

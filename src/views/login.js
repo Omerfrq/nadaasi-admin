@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Form, FormGroup, Input, Col, Label, Alert } from 'reactstrap';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
-import logo from '../assets/images/logo.png';
 import { setAuthorizationToken } from '../helpers/utils';
 import { Loader } from '../components/spinner';
 
@@ -51,7 +50,7 @@ export const Login = () => {
           <>
             {error && <Alert color='danger'>Invalid Credentials.</Alert>}
             {/* <img src={logo} alt='logo' width='100%' /> */}
-            <h1 className='text-center text-uppercase'>High Clowns</h1>
+            <h1 className='text-center text-uppercase'>BDI INVEST</h1>
             <small className='text-right w-100 d-block px-2 font-weight-bold '>
               Admin
             </small>
