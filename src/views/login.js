@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Form, FormGroup, Input, Col, Label, Alert } from 'reactstrap';
 import { useHistory } from 'react-router-dom';
 import axios from 'axios';
-import logo from '../assets/images/logo.png';
+
 import { setAuthorizationToken } from '../helpers/utils';
 import { Loader } from '../components/spinner';
 

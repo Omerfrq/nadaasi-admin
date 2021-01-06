@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Logo from '../assets/images/logo-white.png';
+
 import { NavItem, NavLink } from 'reactstrap';
 import { NavLink as RRNavLink } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
@@ -112,6 +112,29 @@ const Appbar = () => {
                   to='/add-coupon'
                 >
                   Add Coupons
+                </NavLink>
+              </MenuItem>
+            </SubMenu>
+            <SubMenu title='Slides' icon={<FeatherIcon icon='sliders' />}>
+              <MenuItem>
+                {' '}
+                <NavLink
+                  exact={true}
+                  activeClassName='text-light font-weight-bold '
+                  tag={RRNavLink}
+                  to='/slides'
+                >
+                  Slides
+                </NavLink>
+              </MenuItem>
+              <MenuItem>
+                <NavLink
+                  exact={true}
+                  activeClassName='text-light font-weight-bold '
+                  tag={RRNavLink}
+                  to='/add-slide'
+                >
+                  Add Slides
                 </NavLink>
               </MenuItem>
             </SubMenu>

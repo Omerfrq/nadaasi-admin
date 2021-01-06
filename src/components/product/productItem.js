@@ -27,7 +27,7 @@ export const ProductItem = ({ product }) => {
         {images.map((image, idx) => (
           <img
             key={idx}
-            class='sm-category rounded-lg mr-2'
+            className='sm-category rounded-lg mr-2'
             src={image}
             alt={image}
           />

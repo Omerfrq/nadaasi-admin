@@ -11,6 +11,8 @@ import { Login } from '../views/login';
 import { AddCategory } from '../views/addCategory';
 import { ViewCategories } from '../views/viewCategories';
 import { Dashboard } from '../views/Dashboard';
+import { ViewSlides } from '../views/viewSlides';
+import { AddSlide } from '../views/addSlide';
 
 export const Router = () => {
   return (
@@ -25,6 +27,9 @@ export const Router = () => {
       <Route exact path='/add-coupon' component={AddCoupon} />
       <Route exact path='/coupons' component={ViewCoupon} />
       <Route exact path='/orders' component={ViewOrders} />
+      <Route exact path='/slides' component={ViewSlides} />
+      <Route exact path='/add-slide' component={AddSlide} />
+
       <Route exact path='/categories' component={ViewCategories} />
     </Switch>
   );
