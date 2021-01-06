@@ -15,9 +15,9 @@ export const Users = () => {
   useEffect(() => {
     setAuthorizationToken();
     axios
-      .get('/auth/users')
+      .get('/users')
       .then((res) => {
-        setUsers(res.data);
+        setUsers(res.data.users);
         setIsLoading(false);
       })
       .catch((err) => {
@@ -42,16 +42,19 @@ export const Users = () => {
                 </span>
               </div>
               {users.map((user) => {
-                const { _id, firstname, lastname, email } = user;
+                const { _id, aoi, email } = user;
                 return (
                   <div
                     key={_id}
-                    className='mb-2 border-0 shadow-sm d-flex justify-content-between text-dark list-group-item '
+                    className='mb-2 border-0 shadow-sm d-flex align-items-center justify-content-between text-dark list-group-item '
                   >
-                    <span className='text-capitalize'>
-                      {firstname} {lastname}
-                    </span>
-                    <div className='font-weight-bold'>
+                    <div className='d-flex flex-column'>
+                      <span className='text-capitalize font-weight-bold'>
+                        {aoi.value}
+                      </span>
+                      <span className='small text-muted'>{aoi.label}</span>
+                    </div>
+                    <div className='font-weight-bold '>
                       <span>{email}</span>
                     </div>
                   </div>

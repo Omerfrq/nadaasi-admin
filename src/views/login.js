@@ -29,7 +29,7 @@ export const Login = () => {
       password,
     };
     axios
-      .post('/auth/admin', payload)
+      .post('/signin/admin', payload)
       .then((res) => {
         localStorage.setItem('loggedIn', res.data.token);
         setIsLoading(false);
