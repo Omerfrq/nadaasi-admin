@@ -13,6 +13,7 @@ export const ProjectList = ({ projects }) => {
           <th>Funding</th>
           <th>Criteria</th>
           <th>Attachments</th>
+          <th>Actions</th>
         </tr>
       </thead>
       <tbody>

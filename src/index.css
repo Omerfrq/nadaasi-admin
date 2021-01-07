@@ -8,6 +8,10 @@
   color: rgb(22, 31, 106);
 }
 
+.cursor-pointer {
+  cursor: pointer;
+}
+
 a,
 a:hover {
   color: inherit;
