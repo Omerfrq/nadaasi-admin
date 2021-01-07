@@ -3,7 +3,7 @@ import FeedbackItem from './feedbackItem';
 export default function FeedbackList({ feedbacks }) {
   return (
     <>
-      {feedbacks.map((feedback) => (
+      {feedbacks.reverse().map((feedback) => (
         <FeedbackItem key={feedback._id} feedback={feedback} />
       ))}
     </>

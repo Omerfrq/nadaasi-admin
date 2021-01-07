@@ -16,7 +16,7 @@ export const Users = () => {
   useEffect(() => {
     setAuthorizationToken();
     axios
-      .get('/users')
+      .get('admin/users')
       .then((res) => {
         setUsers(res.data.users);
         setIsLoading(false);

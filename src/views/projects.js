@@ -19,7 +19,7 @@ export const Projects = () => {
   useEffect(() => {
     setAuthorizationToken();
     axios
-      .get('/project/agent')
+      .get('admin/agent/project')
       .then((res) => {
         setProjects(res.data.projects);
         setIsLoading(false);
