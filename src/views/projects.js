@@ -5,9 +5,10 @@ import { Container } from 'reactstrap';
 import { useIsAdmin } from '../hooks/useIsAdmin';
 import { Loader } from '../components/spinner';
 import { setAuthorizationToken } from '../helpers/utils';
-import moment from 'moment';
+import Header from '../components/header';
+import NotFound from '../components/NotFound';
 
-const getDate = (createdAt) => moment.utc(createdAt).format('MMM DD, YYYY');
+import { ProjectList } from '../components/project/projectList';
 
 export const Projects = () => {
   const [projects, setProjects] = useState([]);
@@ -36,36 +37,20 @@ export const Projects = () => {
             <Loader />
           </>
         ) : (
-          <div className='row'>
-            <div className='col-md-12 mb-3 h-80vh'>
-              <div className='d-flex justify-content-end'>
-                <span className='badge badge-primary badge-pill shadow-sm p-2 mb-2'>
-                  Total Projects:{' '}
-                  <span className='font-weight-bold '>{projects.length}</span>
-                </span>
+          <>
+            <Header heading='Projects' item={projects} />
+            <div className='col-md-12'>
+              <div className='row'>
+                <div className='p-0 col-md-12 my-2'>
+                  {projects.length > 0 ? (
+                    <ProjectList projects={projects} />
+                  ) : (
+                    <NotFound message='Not Products Added.' />
+                  )}
+                </div>
               </div>
-              {projects.map((project) => {
-                return (
-                  <div
-                    key={project?._id}
-                    className='mb-2 border-0 shadow-sm d-flex align-items-center justify-content-between text-dark list-group-item '
-                  >
-                    <div className='d-flex flex-column'>
-                      <span className='text-capitalize font-weight-bold'>
-                        {project?.title}
-                      </span>
-                      <span className='small text-muted'>
-                        {getDate(project?.submissionDeadline)}
-                      </span>
-                    </div>
-                    <div className='font-weight-bold '>
-                      <span>{project?.description}</span>
-                    </div>
-                  </div>
-                );
-              })}
             </div>
-          </div>
+          </>
         )}
       </div>
     </Container>

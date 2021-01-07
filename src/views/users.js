@@ -5,6 +5,7 @@ import { Container } from 'reactstrap';
 import { useIsAdmin } from '../hooks/useIsAdmin';
 import { Loader } from '../components/spinner';
 import { setAuthorizationToken } from '../helpers/utils';
+import Header from '../components/header';
 
 export const Users = () => {
   const [users, setUsers] = useState([]);
@@ -34,13 +35,8 @@ export const Users = () => {
           </>
         ) : (
           <div className='row'>
-            <div className='col-md-12 mb-3 h-80vh'>
-              <div className='d-flex justify-content-end'>
-                <span className='badge badge-primary badge-pill shadow-sm p-2 mb-2'>
-                  Total Users:{' '}
-                  <span className='font-weight-bold '>{users.length}</span>
-                </span>
-              </div>
+            <Header heading='Users' item={users} />
+            <div className='col-md-12 mb-2 h-80vh'>
               {users.map((user) => {
                 const { _id, aoi, email } = user;
                 return (

@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import Logo from '../assets/images/logo-white.png';
+
 import { NavItem, NavLink } from 'reactstrap';
 import { NavLink as RRNavLink } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
-import { ProSidebar, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
+import { ProSidebar, Menu, MenuItem } from 'react-pro-sidebar';
 import Toggle from 'react-toggle';
 import FeatherIcon from 'feather-icons-react';
 
