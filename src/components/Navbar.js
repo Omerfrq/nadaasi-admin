@@ -158,16 +158,16 @@ const Appbar = () => {
                 Orders
               </NavLink>
             </MenuItem> */}
-            {/* <MenuItem icon={<FeatherIcon icon='clipboard' />}>
+            <MenuItem icon={<FeatherIcon icon='clipboard' />}>
               <NavLink
                 exact={true}
                 activeClassName='text-light font-weight-bold '
                 tag={RRNavLink}
-                to='/feedback'
+                to='/messages'
               >
-                Feedback
+                Messages
               </NavLink>
-            </MenuItem> */}
+            </MenuItem>
             <MenuItem icon={<FeatherIcon icon='log-out' />}>
               <NavItem>
                 <NavLink
