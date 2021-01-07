@@ -69,6 +69,17 @@ const Appbar = () => {
                 Users
               </NavLink>
             </MenuItem>
+            <MenuItem icon={<FeatherIcon icon='activity' />}>
+              {' '}
+              <NavLink
+                exact={true}
+                activeClassName='text-light font-weight-bold '
+                tag={RRNavLink}
+                to='/projects'
+              >
+                Projects
+              </NavLink>
+            </MenuItem>
             {/* <SubMenu title='Categories' icon={<FeatherIcon icon='gift' />}>
               <MenuItem>
                 {' '}
