@@ -63,6 +63,11 @@ export const Dashboard = () => {
               message='View Messages from here'
               to='/messages'
             />
+            <DashboardCard
+              title='View Contractor Requests'
+              message='View Contractor Requests from here'
+              to='/request/contractor'
+            />
           </div>
         </div>
       </div>
