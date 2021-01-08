@@ -7,6 +7,7 @@ import { Login } from '../views/login';
 import { Dashboard } from '../views/Dashboard';
 import { Projects } from '../views/projects';
 import { Messages } from '../views/messages';
+import { ContractorRequests } from '../views/ContractorRequest';
 
 export const Router = () => {
   return (
@@ -16,6 +17,7 @@ export const Router = () => {
       <Route exact path='/users' component={Users} />
       <Route exact path='/projects' component={Projects} />
       <Route exact path='/messages' component={Messages} />
+      <Route exact path='/request/contractor' component={ContractorRequests} />
     </Switch>
   );
 };
