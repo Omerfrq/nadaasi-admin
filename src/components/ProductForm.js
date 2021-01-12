@@ -38,6 +38,9 @@ export const ProductForm = () => {
   const [dressColor, setDressColor] = useState([]);
   const [inStock, setInStock] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
+  const [dynamicPriceType, setDynamicPriceType] = useState('');
+
+  const [hasDynamicPrice, setHasDynamicPricing] = useState(true);
 
   const [placeholder, setPlaceHolder] = useState([]);
 
@@ -58,27 +61,13 @@ export const ProductForm = () => {
     const {
       price,
       name,
-      // closure,
-      // details,
-      // fabric,
-      // length,
-      // neckLine,
-      // waistLine,
-      // modelHAndS,
       description,
       stockQuantity,
+      startingDynamicPrice,
+      endingDynamicPrice,
+      dynamicPriceToIncrease,
     } = data;
     const formdata = new FormData();
-
-    // const productDetails = {
-    //   closure,
-    //   details,
-    //   fabric,
-    //   length,
-    //   neckLine,
-    //   waistLine,
-    //   modelHAndS,
-    // };
     images.map((file) => formdata.append('images', file));
     formdata.append('price', price);
     formdata.append('name', name);
@@ -89,9 +78,15 @@ export const ProductForm = () => {
     formdata.append('inStock', inStock);
     formdata.append('description', description);
     formdata.append('upc', shortid.generate());
-    formdata.append('stockQuantity', stockQuantity);
-    // formdata.append('details', JSON.stringify(productDetails));
-
+    formdata.append('stockQuantity', Number(stockQuantity));
+    if (hasDynamicPrice) {
+      formdata.append('quantityTrigger', 1);
+      formdata.append('isFirstSale', true);
+      formdata.append('dynamicPriceType', dynamicPriceType);
+      formdata.append('startingDynamicPrice', startingDynamicPrice);
+      formdata.append('endingDynamicPrice', endingDynamicPrice);
+      formdata.append('dynamicPriceToIncrease', dynamicPriceToIncrease);
+    }
     axios
       .post('/product', formdata)
       .then((res) => {
@@ -253,73 +248,91 @@ export const ProductForm = () => {
                 />
               </div>
             </div>
-            {/* <div className='col-md-4'>
-              <div className='form-group'>
-                <input
-                  name='fabric'
-                  ref={register}
-                  type='text'
-                  className='form-control'
-                  placeholder='Enter Fabric'
-                />
+          </div>
+          <div className='row'>
+            <div className='col-md-12'>
+              <div className='d-flex justify-content-between'>
+                <h4 className='font-weight-bold text-info'>Dynamic Pricing</h4>
+                <span>
+                  {' '}
+                  <Toggle
+                    id='1234'
+                    defaultChecked={hasDynamicPrice}
+                    onChange={(e) => {
+                      setHasDynamicPricing(e.target.checked);
+                    }}
+                  />
+                </span>
               </div>
             </div>
-            <div className='col-md-4'>
-              <div className='form-group'>
-                <input
-                  name='length'
-                  ref={register}
-                  type='text'
-                  className='form-control'
-                  placeholder='Enter Length'
-                />
+            {hasDynamicPrice && (
+              <div className='col-md-12'>
+                <div className='row'>
+                  <div className='col-md-12'>
+                    <div className='form-group'>
+                      <Select
+                        defaultValue={[]}
+                        placeholder='Select Dynamic Price Type..'
+                        name='dynamicPriceType'
+                        options={[
+                          {
+                            label: 'flat',
+                            value: 'flat',
+                          },
+                          {
+                            label: 'percentage',
+                            value: 'percentage',
+                          },
+                        ]}
+                        onChange={({ value }) => {
+                          setDynamicPriceType(value);
+                        }}
+                      />
+                    </div>
+                  </div>
+                  <div className='col-md-12'>
+                    <div className='row'>
+                      <div className='col-md-4'>
+                        <div className='form-group'>
+                          <input
+                            name='dynamicPriceToIncrease'
+                            ref={register}
+                            type='text'
+                            className='form-control'
+                            placeholder='Enter Price To Increase'
+                          />
+                          <small className='text-muted text-capitalize'>
+                            Value Will be added to price after every purchase
+                          </small>
+                        </div>
+                      </div>
+                      <div className='col-md-4'>
+                        <div className='form-group'>
+                          <input
+                            name='startingDynamicPrice'
+                            ref={register}
+                            type='text'
+                            className='form-control'
+                            placeholder='Enter Starting Price'
+                          />
+                        </div>
+                      </div>
+                      <div className='col-md-4'>
+                        <div className='form-group'>
+                          <input
+                            name='endingDynamicPrice'
+                            ref={register}
+                            type='text'
+                            className='form-control'
+                            placeholder='Enter Ending Price'
+                          />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
-            </div>
-
-            <div className='col-md-6'>
-              <div className='form-group'>
-                <input
-                  name='neckLine'
-                  ref={register}
-                  type='text'
-                  className='form-control'
-                  placeholder='Enter Neckline'
-                />
-              </div>
-            </div>
-            <div className='col-md-6'>
-              <div className='form-group'>
-                <input
-                  name='waistLine'
-                  ref={register}
-                  type='text'
-                  className='form-control'
-                  placeholder='Enter Waistline'
-                />
-              </div>
-            </div>
-            <div className='col-md-6'>
-              <div className='form-group'>
-                <input
-                  name='details'
-                  ref={register}
-                  type='text'
-                  className='form-control'
-                  placeholder='Enter Details'
-                />
-              </div>
-            </div>
-            <div className='col-md-6'>
-              <div className='form-group'>
-                <input
-                  name='modelHAndS'
-                  ref={register}
-                  type='text'
-                  className='form-control'
-                  placeholder='Enter Model Height And Size'
-                />
-              </div>
-            </div> */}
+            )}
           </div>
         </div>
 
