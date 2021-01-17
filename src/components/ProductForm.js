@@ -79,6 +79,7 @@ export const ProductForm = () => {
     formdata.append('description', description);
     formdata.append('upc', shortid.generate());
     formdata.append('stockQuantity', Number(stockQuantity));
+    formdata.append('dynamicPrice', false);
     if (hasDynamicPrice) {
       formdata.append('quantityTrigger', 1);
       formdata.append('isFirstSale', true);
@@ -86,6 +87,7 @@ export const ProductForm = () => {
       formdata.append('startingDynamicPrice', startingDynamicPrice);
       formdata.append('endingDynamicPrice', endingDynamicPrice);
       formdata.append('dynamicPriceToIncrease', dynamicPriceToIncrease);
+      formdata.append('dynamicPrice', true);
     }
     axios
       .post('/product', formdata)
