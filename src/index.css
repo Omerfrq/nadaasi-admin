@@ -181,6 +181,10 @@ body {
   }
 }
 
+.cursor-pointer {
+  cursor: pointer;
+}
+
 .pro-sidebar {
   background: #1d1d1d;
   color: #adadad;
