@@ -58,7 +58,39 @@ const Appbar = () => {
                 Dashboard
               </NavLink>
             </MenuItem>
-            <MenuItem icon={<FeatherIcon icon='users' />}>
+            <SubMenu title='Products' icon={<FeatherIcon icon='package' />}>
+              <MenuItem>
+                <NavLink
+                  exact={true}
+                  activeClassName='text-light font-weight-bold '
+                  tag={RRNavLink}
+                  to='/upload-product'
+                >
+                  Add Product
+                </NavLink>
+              </MenuItem>
+              <MenuItem>
+                <NavLink
+                  exact={true}
+                  activeClassName='text-light font-weight-bold '
+                  tag={RRNavLink}
+                  to='/products'
+                >
+                  Products
+                </NavLink>
+              </MenuItem>
+            </SubMenu>
+            <MenuItem icon={<FeatherIcon icon='truck' />}>
+              <NavLink
+                exact={true}
+                activeClassName='text-light font-weight-bold '
+                tag={RRNavLink}
+                to='/orders'
+              >
+                Orders
+              </NavLink>
+            </MenuItem>
+            {/* <MenuItem icon={<FeatherIcon icon='users' />}>
               {' '}
               <NavLink
                 exact={true}
@@ -68,7 +100,7 @@ const Appbar = () => {
               >
                 Users
               </NavLink>
-            </MenuItem>
+            </MenuItem> */}
             <SubMenu title='Categories' icon={<FeatherIcon icon='gift' />}>
               <MenuItem>
                 {' '}
@@ -138,38 +170,7 @@ const Appbar = () => {
                 </NavLink>
               </MenuItem>
             </SubMenu>
-            <SubMenu title='Products' icon={<FeatherIcon icon='package' />}>
-              <MenuItem>
-                <NavLink
-                  exact={true}
-                  activeClassName='text-light font-weight-bold '
-                  tag={RRNavLink}
-                  to='/upload-product'
-                >
-                  Add Product
-                </NavLink>
-              </MenuItem>
-              <MenuItem>
-                <NavLink
-                  exact={true}
-                  activeClassName='text-light font-weight-bold '
-                  tag={RRNavLink}
-                  to='/products'
-                >
-                  Products
-                </NavLink>
-              </MenuItem>
-            </SubMenu>
-            <MenuItem icon={<FeatherIcon icon='truck' />}>
-              <NavLink
-                exact={true}
-                activeClassName='text-light font-weight-bold '
-                tag={RRNavLink}
-                to='/orders'
-              >
-                Orders
-              </NavLink>
-            </MenuItem>
+
             <MenuItem icon={<FeatherIcon icon='clipboard' />}>
               <NavLink
                 exact={true}
