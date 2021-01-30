@@ -8,40 +8,21 @@ import Toggle from 'react-toggle';
 import axios from 'axios';
 import { OPTIONS } from '../config/selectConfig';
 import { toast } from 'react-toastify';
-import { useCategories } from '../hooks/useCategories';
-import { Loader } from './spinner';
-import shortid from 'shortid';
-
-const formatCategories = (categories) => {
-  const options = [];
-
-  if (categories?.categories?.length !== 0) {
-    categories.map((category) =>
-      options.push({
-        label: category.name,
-        value: category.name,
-      })
-    );
-  }
-
-  return options;
-};
+import { useHistory } from 'react-router-dom';
 
 export const ProductForm = () => {
-  const { categories, isLoading: isLoadingCategories } = useCategories(true);
-
   const { handleSubmit, register } = useForm();
-
   const [images, setImages] = useState([]);
-  const [dressType, setDressType] = useState();
+  const [category, setcategory] = useState();
   const [dressSize, setDressSize] = useState([]);
   const [dressColor, setDressColor] = useState([]);
   const [inStock, setInStock] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
-  const [dynamicPriceType, setDynamicPriceType] = useState('');
+  const history = useHistory();
 
-  const [hasDynamicPrice, setHasDynamicPricing] = useState(true);
-
+  const [three4Thiry, setThree4Thirty] = useState(true);
+  const [subCategory, setSubCategory] = useState('');
+  const [design, setDesign] = useState('');
   const [placeholder, setPlaceHolder] = useState([]);
 
   const onDrop = useCallback((acceptedFiles) => {
@@ -58,37 +39,20 @@ export const ProductForm = () => {
 
   const onSubmit = (data) => {
     setIsLoading(true);
-    const {
-      price,
-      name,
-      description,
-      stockQuantity,
-      startingDynamicPrice,
-      endingDynamicPrice,
-      dynamicPriceToIncrease,
-    } = data;
+    const { price, name, description, stockQuantity } = data;
     const formdata = new FormData();
     images.map((file) => formdata.append('images', file));
     formdata.append('price', price);
     formdata.append('name', name);
-    formdata.append('rating', '5');
     formdata.append('size', dressSize);
     formdata.append('color', dressColor);
-    formdata.append('category', dressType);
+    formdata.append('category', category);
     formdata.append('inStock', inStock);
     formdata.append('description', description);
-    formdata.append('upc', shortid.generate());
     formdata.append('stockQuantity', Number(stockQuantity));
-    formdata.append('dynamicPrice', false);
-    if (hasDynamicPrice) {
-      formdata.append('quantityTrigger', 1);
-      formdata.append('isFirstSale', true);
-      formdata.append('dynamicPriceType', dynamicPriceType);
-      formdata.append('startingDynamicPrice', startingDynamicPrice);
-      formdata.append('endingDynamicPrice', endingDynamicPrice);
-      formdata.append('dynamicPriceToIncrease', dynamicPriceToIncrease);
-      formdata.append('dynamicPrice', true);
-    }
+    formdata.append('three4Thirty', three4Thiry);
+    formdata.append('subCategory', subCategory);
+    formdata.append('design', design);
     axios
       .post('/product', formdata)
       .then((res) => {
@@ -96,6 +60,7 @@ export const ProductForm = () => {
         toast.success('Product Added Successfully', {
           autoClose: '1500',
         });
+        history.push('/products');
       })
       .catch((err) => {
         setIsLoading(false);
@@ -104,14 +69,6 @@ export const ProductForm = () => {
         });
       });
   };
-
-  if (isLoadingCategories) {
-    return (
-      <div className='container'>
-        <Loader />
-      </div>
-    );
-  }
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -156,7 +113,7 @@ export const ProductForm = () => {
           </div>
         </div>
 
-        <div className='col-md-4'>
+        <div className='col-md-6'>
           <div className='form-group'>
             <input
               type='text'
@@ -167,7 +124,7 @@ export const ProductForm = () => {
             />
           </div>
         </div>
-        <div className='col-md-4'>
+        <div className='col-md-6'>
           <div className='form-group'>
             <input
               type='text'
@@ -183,10 +140,67 @@ export const ProductForm = () => {
             <Select
               defaultValue={[]}
               placeholder='Select Category..'
-              name='dressType'
-              options={formatCategories(categories)}
+              name='category'
+              options={[
+                {
+                  label: 'Tie',
+                  value: 'tie',
+                },
+                {
+                  label: 'Bow',
+                  value: 'bow',
+                },
+              ]}
               onChange={({ value }) => {
-                setDressType(value);
+                setcategory(value);
+              }}
+            />
+          </div>
+        </div>
+        <div className='col-md-4'>
+          <div className='form-group'>
+            <Select
+              defaultValue={subCategory}
+              placeholder='Select SubCategory..'
+              name='category'
+              options={[
+                {
+                  label: 'Wedding',
+                  value: 'wedding',
+                },
+                {
+                  label: 'Formal',
+                  value: 'unformal',
+                },
+              ]}
+              onChange={({ value }) => {
+                setSubCategory(value);
+              }}
+            />
+          </div>
+        </div>
+        <div className='col-md-4'>
+          <div className='form-group'>
+            <Select
+              defaultValue={[]}
+              placeholder='Select Design..'
+              name='design'
+              options={[
+                {
+                  label: 'Pattern',
+                  value: 'pattern',
+                },
+                {
+                  label: 'Plain',
+                  value: 'plain',
+                },
+                {
+                  label: 'Strips',
+                  value: 'strips',
+                },
+              ]}
+              onChange={({ value }) => {
+                setDesign(value);
               }}
             />
           </div>
@@ -196,7 +210,7 @@ export const ProductForm = () => {
             <Select
               defaultValue={[]}
               isMulti
-              placeholder='Select Dress Size..'
+              placeholder='Select Tie Size..'
               name='colors'
               innerRef={register}
               options={OPTIONS.dressSizeOptions}
@@ -212,7 +226,7 @@ export const ProductForm = () => {
           <div className='form-group'>
             <CreatableSelect
               isMulti
-              placeholder='Select Dress Color..'
+              placeholder='Select Tie Color..'
               options={OPTIONS.dressColorOptions}
               onChange={(values) => {
                 values !== null &&
@@ -236,7 +250,7 @@ export const ProductForm = () => {
         <div className='col-md-12'>
           <div className='d-flex justify-content-between'>
             <h4 className='font-weight-bold text-info'>Product Details</h4>
-            <span className='tag '>Optional</span>
+            {/* <span className='tag '>Optional</span> */}
           </div>
           <div className='row'>
             <div className='col-md-12'>
@@ -254,87 +268,19 @@ export const ProductForm = () => {
           <div className='row'>
             <div className='col-md-12'>
               <div className='d-flex justify-content-between'>
-                <h4 className='font-weight-bold text-info'>Dynamic Pricing</h4>
+                <h4 className='font-weight-bold text-info'>Three For Thirty</h4>
                 <span>
                   {' '}
                   <Toggle
                     id='1234'
-                    defaultChecked={hasDynamicPrice}
+                    defaultChecked={three4Thiry}
                     onChange={(e) => {
-                      setHasDynamicPricing(e.target.checked);
+                      setThree4Thirty(e.target.checked);
                     }}
                   />
                 </span>
               </div>
             </div>
-            {hasDynamicPrice && (
-              <div className='col-md-12'>
-                <div className='row'>
-                  <div className='col-md-12'>
-                    <div className='form-group'>
-                      <Select
-                        defaultValue={[]}
-                        placeholder='Select Dynamic Price Type..'
-                        name='dynamicPriceType'
-                        options={[
-                          {
-                            label: 'flat',
-                            value: 'flat',
-                          },
-                          {
-                            label: 'percentage',
-                            value: 'percentage',
-                          },
-                        ]}
-                        onChange={({ value }) => {
-                          setDynamicPriceType(value);
-                        }}
-                      />
-                    </div>
-                  </div>
-                  <div className='col-md-12'>
-                    <div className='row'>
-                      <div className='col-md-4'>
-                        <div className='form-group'>
-                          <input
-                            name='dynamicPriceToIncrease'
-                            ref={register}
-                            type='text'
-                            className='form-control'
-                            placeholder='Enter Price To Increase'
-                          />
-                          <small className='text-muted text-capitalize'>
-                            Value Will be added to price after every purchase
-                          </small>
-                        </div>
-                      </div>
-                      <div className='col-md-4'>
-                        <div className='form-group'>
-                          <input
-                            name='startingDynamicPrice'
-                            ref={register}
-                            type='text'
-                            className='form-control'
-                            placeholder='Enter Starting Price'
-                          />
-                        </div>
-                      </div>
-                      <div className='col-md-4'>
-                        <div className='form-group'>
-                          <input
-                            name='endingDynamicPrice'
-                            ref={register}
-                            type='text'
-                            className='form-control'
-                            placeholder='Enter Ending Price'
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            )}
           </div>
         </div>
 

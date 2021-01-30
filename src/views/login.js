@@ -5,6 +5,7 @@ import axios from 'axios';
 
 import { setAuthorizationToken } from '../helpers/utils';
 import { Loader } from '../components/spinner';
+import logo from '../assets/images/logo.jpg';
 
 export const Login = () => {
   const [email, setEmail] = useState();
@@ -33,6 +34,7 @@ export const Login = () => {
       .post('/auth/admin', payload)
       .then((res) => {
         localStorage.setItem('loggedIn', res.data.token);
+        setAuthorizationToken();
         setIsLoading(false);
         history.push('/dashboard');
       })
@@ -50,11 +52,23 @@ export const Login = () => {
         ) : (
           <>
             {error && <Alert color='danger'>Invalid Credentials.</Alert>}
-            {/* <img src={logo} alt='logo' width='100%' /> */}
-            <h1 className='text-center text-uppercase'>High Clowns</h1>
-            <small className='text-right w-100 d-block px-2 font-weight-bold '>
-              Admin
-            </small>
+            <div
+              style={{
+                height: 100,
+              }}
+            >
+              <img
+                style={{
+                  objectFit: 'cover',
+                }}
+                className='h-100 w-100 mb-2'
+                src={logo}
+                alt='logo'
+              />
+            </div>
+
+            <h1 className='text-center text-uppercase'>LCU Mens Wears</h1>
+
             <Form className='mt-4' onSubmit={onSubmit}>
               <FormGroup>
                 <Label>Email</Label>

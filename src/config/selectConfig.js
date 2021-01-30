@@ -4,10 +4,10 @@ export const OPTIONS = {
       value: 'SM',
       label: 'Small',
     },
-    {
-      value: 'XS',
-      label: 'Extra Small',
-    },
+    // {
+    //   value: 'XS',
+    //   label: 'Extra Small',
+    // },
     {
       value: 'MD',
       label: 'Medium',
@@ -17,14 +17,14 @@ export const OPTIONS = {
       label: 'Large',
     },
 
-    {
-      value: 'XL',
-      label: 'Extra Large',
-    },
-    {
-      value: 'XXL',
-      label: 'Extra Extra large',
-    },
+    // {
+    //   value: 'XL',
+    //   label: 'Extra Large',
+    // },
+    // {
+    //   value: 'XXL',
+    //   label: 'Extra Extra large',
+    // },
   ],
   dressTypeOptions: [
     {

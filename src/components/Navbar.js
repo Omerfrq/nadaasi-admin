@@ -13,6 +13,8 @@ const Appbar = () => {
 
   const isLoggedIn = localStorage.getItem('loggedIn');
 
+  console.log(isLoggedIn);
+
   return (
     <div className='h-100vh'>
       {isLoggedIn ? (
@@ -35,14 +37,8 @@ const Appbar = () => {
                 tag={RRNavLink}
                 to='/coupons'
               >
-                {/* <img
-                  className='ml-2'
-                  src={Logo}
-                  alt='Nadaasi Logo'
-                  width='90px'
-                />{' '} */}
                 <span className='font-weight-bold text-white mr-2'>
-                  High Clowns
+                  LCU Wears
                 </span>
                 <span className='text-white ml-1'>Admin</span>
               </NavLink>
@@ -90,7 +86,7 @@ const Appbar = () => {
                 Orders
               </NavLink>
             </MenuItem>
-            {/* <MenuItem icon={<FeatherIcon icon='users' />}>
+            <MenuItem icon={<FeatherIcon icon='users' />}>
               {' '}
               <NavLink
                 exact={true}
@@ -100,8 +96,8 @@ const Appbar = () => {
               >
                 Users
               </NavLink>
-            </MenuItem> */}
-            <SubMenu title='Categories' icon={<FeatherIcon icon='gift' />}>
+            </MenuItem>
+            {/* <SubMenu title='Categories' icon={<FeatherIcon icon='gift' />}>
               <MenuItem>
                 {' '}
                 <NavLink
@@ -123,8 +119,8 @@ const Appbar = () => {
                   Add Category
                 </NavLink>
               </MenuItem>
-            </SubMenu>
-            <SubMenu title='Coupons' icon={<FeatherIcon icon='gift' />}>
+            </SubMenu> */}
+            {/* <SubMenu title='Coupons' icon={<FeatherIcon icon='gift' />}>
               <MenuItem>
                 {' '}
                 <NavLink
@@ -146,8 +142,8 @@ const Appbar = () => {
                   Add Coupons
                 </NavLink>
               </MenuItem>
-            </SubMenu>
-            <SubMenu title='Slides' icon={<FeatherIcon icon='sliders' />}>
+            </SubMenu> */}
+            {/* <SubMenu title='Slides' icon={<FeatherIcon icon='sliders' />}>
               <MenuItem>
                 {' '}
                 <NavLink
@@ -169,7 +165,7 @@ const Appbar = () => {
                   Add Slides
                 </NavLink>
               </MenuItem>
-            </SubMenu>
+            </SubMenu> */}
 
             <MenuItem icon={<FeatherIcon icon='clipboard' />}>
               <NavLink
