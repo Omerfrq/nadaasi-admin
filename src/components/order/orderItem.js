@@ -87,9 +87,9 @@ export const OrderItem = ({ order }) => {
                           />
                         ))}
                       </td>
-                      <td className='text-dm text-capitalize'>{name}</td>
-                      <td className='text-center'>{quantity}</td>
-                      <td className='text-center'>{size}</td>
+                      <td className=' text-capitalize'>{name}</td>
+                      <td>{quantity}</td>
+                      <td>{size}</td>
                     </tr>
                   )
                 )}
