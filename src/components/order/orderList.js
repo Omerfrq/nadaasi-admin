@@ -11,7 +11,6 @@ export const OrderList = ({ orders }) => {
           <th>Total</th>
           <th>Address</th>
           <th>Status</th>
-          <th>Coupon</th>
           <th>Items</th>
           <th>Actions</th>
         </tr>

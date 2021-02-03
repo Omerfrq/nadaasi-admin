@@ -28,7 +28,6 @@ const orderStatusOptions = [
 ];
 
 export const OrderItem = ({ order }) => {
-  console.log(order);
   const [isLoading, setIsLoading] = useState(false);
 
   const [isOpen, setIsOpen] = useState(false);
@@ -56,9 +55,15 @@ export const OrderItem = ({ order }) => {
       {isOpen && (
         <Modal isOpen={isOpen} toggle={toggle}>
           <ModalHeader className='text-muted' toggle={toggle}>
-            Delete
+            {order.orderId}
           </ModalHeader>
           <ModalBody>
+            <div className='d-flex justify-content-end align-items-baseline pb-2 border-bottom border-muted'>
+              <small className='mr-1 font-weight-bold'>Total:</small>{' '}
+              <span className='badge bg-info-dull d-flex justify-content-center align-items-center'>
+                ${order?.total}
+              </span>
+            </div>
             <Table borderless>
               <thead>
                 <tr className=' border-bottom  font-weight-bold text-uppercase'>
@@ -107,18 +112,15 @@ export const OrderItem = ({ order }) => {
           <div className='d-flex flex-column'>
             <small className=' mb-1'>
               <span className='font-weight-bold'>Address:</span>{' '}
-              {order?.address?.addressDescription}{' '}
-              {order?.address?.country?.emoji}
+              {order?.address?.addressDescription}
             </small>
-            <small>
-              Phone: {order?.phone}| {order?.address?.district}
-            </small>
+            <small>Phone: {order?.phone}</small>
           </div>
         </td>
         <td>
           <span className='tag'>{order.orderStatus}</span>
         </td>
-        <td className='small'>
+        {/* <td className='small'>
           <div className='d-flex flex-column'>
             <small className='font-weight-bold mb-1'>
               {order?.appliedCoupon ? order?.appliedCoupon?.name : 'N / A'}
@@ -128,7 +130,7 @@ export const OrderItem = ({ order }) => {
               {order?.appliedCoupon ? order?.appliedCoupon?.value : 0}
             </small>
           </div>
-        </td>
+        </td> */}
         <td>{order?.orderItem?.length}</td>
         <td>
           <div
