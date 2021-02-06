@@ -1,7 +1,6 @@
 import React, { useCallback, useState } from 'react';
 
 import Select from 'react-select';
-import CreatableSelect from 'react-select/creatable';
 import { useForm } from 'react-hook-form';
 import { useDropzone } from 'react-dropzone';
 import Toggle from 'react-toggle';
@@ -21,7 +20,7 @@ export const ProductForm = () => {
   const history = useHistory();
 
   const [three4Thiry, setThree4Thirty] = useState(true);
-  const [subCategory, setSubCategory] = useState('');
+  const [material, setMaterial] = useState('');
   const [design, setDesign] = useState('');
   const [placeholder, setPlaceHolder] = useState([]);
 
@@ -51,8 +50,8 @@ export const ProductForm = () => {
     formdata.append('description', description);
     formdata.append('stockQuantity', Number(stockQuantity));
     formdata.append('three4Thirty', three4Thiry);
-    formdata.append('subCategory', subCategory);
-    formdata.append('design', design);
+    formdata.append('material', material);
+    formdata.append('pattern', design);
     axios
       .post('/product', formdata)
       .then((res) => {
@@ -160,21 +159,12 @@ export const ProductForm = () => {
         <div className='col-md-4'>
           <div className='form-group'>
             <Select
-              defaultValue={subCategory}
-              placeholder='Select SubCategory..'
-              name='category'
-              options={[
-                {
-                  label: 'Wedding',
-                  value: 'wedding',
-                },
-                {
-                  label: 'Formal',
-                  value: 'unformal',
-                },
-              ]}
+              defaultValue={material}
+              placeholder='Select Material'
+              name='material'
+              options={OPTIONS.materialOptions}
               onChange={({ value }) => {
-                setSubCategory(value);
+                setMaterial(value);
               }}
             />
           </div>
@@ -183,22 +173,9 @@ export const ProductForm = () => {
           <div className='form-group'>
             <Select
               defaultValue={[]}
-              placeholder='Select Design..'
+              placeholder='Select Pattern..'
               name='design'
-              options={[
-                {
-                  label: 'Pattern',
-                  value: 'pattern',
-                },
-                {
-                  label: 'Plain',
-                  value: 'plain',
-                },
-                {
-                  label: 'Strips',
-                  value: 'strips',
-                },
-              ]}
+              options={OPTIONS.patternOptions}
               onChange={({ value }) => {
                 setDesign(value);
               }}
@@ -213,7 +190,7 @@ export const ProductForm = () => {
               placeholder='Select Tie Size..'
               name='colors'
               innerRef={register}
-              options={OPTIONS.dressSizeOptions}
+              options={OPTIONS.sizeOptions}
               onChange={(values) => {
                 values !== null &&
                   setDressSize(values.map(({ value }) => value));
@@ -224,10 +201,10 @@ export const ProductForm = () => {
 
         <div className='col-md-6'>
           <div className='form-group'>
-            <CreatableSelect
+            <Select
               isMulti
               placeholder='Select Tie Color..'
-              options={OPTIONS.dressColorOptions}
+              options={OPTIONS.colorOptions}
               onChange={(values) => {
                 values !== null &&
                   setDressColor(values.map(({ value }) => value));

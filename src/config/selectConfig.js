@@ -1,78 +1,104 @@
 export const OPTIONS = {
-  dressSizeOptions: [
+  sizeOptions: [
     {
-      value: 'SM',
-      label: 'Small',
-    },
-    // {
-    //   value: 'XS',
-    //   label: 'Extra Small',
-    // },
-    {
-      value: 'MD',
-      label: 'Medium',
-    },
-    {
-      value: 'LG',
-      label: 'Large',
-    },
-
-    // {
-    //   value: 'XL',
-    //   label: 'Extra Large',
-    // },
-    // {
-    //   value: 'XXL',
-    //   label: 'Extra Extra large',
-    // },
-  ],
-  dressTypeOptions: [
-    {
-      value: 'casual',
-      label: 'Casual',
-    },
-    {
-      value: 'evening',
-      label: 'Evening',
-    },
-    {
-      value: 'a-line',
-      label: 'A-Line',
-    },
-    {
-      value: 'ball-gown',
-      label: 'Ball Gown',
-    },
-    {
-      value: 'a-line-princess',
-      label: 'A-Line / Princess',
-    },
-    {
-      value: 'modified-a-line',
-      label: 'Modified A-Line',
-    },
-    {
-      value: 'sheath',
-      label: 'Sheath',
+      label: 'Regular',
+      value: 'regular',
     },
 
     {
-      value: 'empire-waist',
-      label: 'Empire-Waist',
+      label: 'Skinny',
+      value: 'skinny',
     },
     {
-      value: 'mermaid',
-      label: 'Mermaid',
-    },
-    {
-      value: 'trumpet',
-      label: 'Trumpet',
+      label: 'Slim',
+      value: 'slim',
     },
   ],
-  dressColorOptions: [
+  colorOptions: [
+    { label: 'aqua', value: '#00ffff' },
+    { label: 'beige', value: '#f5f5dc' },
+    { label: 'black', value: '#000000' },
+    { label: 'blue', value: '#0000ff' },
+    { label: 'brown', value: '#a52a2a' },
+    { label: 'burgundy', value: '#440000' },
+    { label: 'gold', value: '#ffd700' },
+    { label: 'green', value: '#008000' },
+    { label: 'grey', value: '#808080' },
+    { label: 'navy', value: '#000080' },
+    { label: 'orange', value: '#ffa500' },
+    { label: 'pink', value: '#ffc0cb' },
+    { label: 'purple', value: '#800080' },
+    { label: 'red', value: '#ff0000' },
+    { label: 'silver', value: '#c0c0c0' },
+    { label: 'white', value: '#ffffff' },
+    { label: 'yellow', value: '#ffff00' },
+    { label: 'cream', value: '#fffdd0' },
+    { label: 'light blue', value: '#00bfff' },
+  ],
+  materialOptions: [
     {
-      value: '#333',
-      label: '#333',
+      label: 'Cotton',
+      value: 'cotton',
+    },
+    {
+      label: 'Cotton Mix',
+      value: 'cotton-mix',
+    },
+    {
+      label: 'Polyester Mix',
+      value: 'polyester-mix',
+    },
+    {
+      label: 'Polyester',
+      value: 'polyester',
+    },
+    {
+      label: 'Silk',
+      value: 'silk',
+    },
+    {
+      label: 'Wool',
+      value: 'Wool',
+    },
+  ],
+
+  patternOptions: [
+    {
+      label: 'Geometric',
+      value: 'geometric',
+    },
+    {
+      label: 'Plain',
+      value: 'plain',
+    },
+    {
+      label: 'Stripe',
+      value: 'stripe',
+    },
+
+    {
+      label: 'Floral',
+      value: 'floral',
+    },
+    {
+      label: 'Spot',
+      value: 'spot',
+    },
+    {
+      label: 'Check',
+      value: 'check',
+    },
+    {
+      label: 'Patterned',
+      value: 'patterned',
+    },
+    {
+      label: 'Knitted',
+      value: 'knitted',
+    },
+    {
+      label: 'Paisley',
+      value: 'paisley',
     },
   ],
 };
