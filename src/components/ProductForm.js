@@ -8,6 +8,7 @@ import axios from 'axios';
 import { OPTIONS } from '../config/selectConfig';
 import { toast } from 'react-toastify';
 import { useHistory } from 'react-router-dom';
+import Creatable from 'react-select/creatable';
 
 export const ProductForm = () => {
   const { handleSubmit, register } = useForm();
@@ -136,7 +137,7 @@ export const ProductForm = () => {
         </div>
         <div className='col-md-4'>
           <div className='form-group'>
-            <Select
+            <Creatable
               defaultValue={[]}
               placeholder='Select Category..'
               name='category'
